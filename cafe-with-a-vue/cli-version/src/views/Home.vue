@@ -92,3 +92,29 @@ export default {
 	}
 }
 </script>
+
+<style lang="scss">
+.footer {
+  text-align: center;
+  font-style: italic;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.description {
+  max-width: 960px;
+  font-size: 1.2rem;
+  margin: 0 auto;
+}
+
+.shopping-cart {
+  position: absolute;
+  right: 30px;
+  top: 0;
+}
+</style>
