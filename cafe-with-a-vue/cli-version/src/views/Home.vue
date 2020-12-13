@@ -12,7 +12,6 @@
 			<h2>Menu</h2>
 			<MenuItem
 				v-for="item in simpleMenu"
-				@add-items-to-cart="addToShoppingCart"
 				:name="item.name"
 				:image="item.image"
 				:price="item.price"
@@ -23,7 +22,7 @@
 		</section>
 
 		<div class="shopping-cart">
-			<h2>Panier: {{ shoppingCart }} articles</h2>
+			<h2>Panier : {{ shoppingCart }} articles</h2>
 		</div>
 
 		<footer class="footer">
@@ -34,27 +33,17 @@
 
 <script>
 import MenuItem from "../components/MenuItem"
-import { mapGetters, mapState } from "vuex"
+import { mapState } from "vuex"
+import { mapGetters } from "vuex"
 
 export default {
 	name: "Home",
 	components: {
 		MenuItem
 	},
-	computed: {
-		...mapGetters({
-			copyright: "copyright"
-		}),
-		...mapState({
-			restaurantName: "restaurantName",
-			shoppingCart: "shoppingCart",
-			simpleMenu: "simpleMenu"
-		})
-	},
-	methods: {
-		addToShoppingCart(amount) {
-			this.shoppingCart += amount
-		}
+	computed:{
+		...mapState(["restaurantName","shoppingCart","simpleMenu"]),
+		...mapGetters(["copyright"])
 	}
 }
 </script>
